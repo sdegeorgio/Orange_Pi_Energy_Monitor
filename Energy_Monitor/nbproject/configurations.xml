@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>DataLog.h</itemPath>
+      <itemPath>DataLogServer.h</itemPath>
+      <itemPath>EnergyMonitor.h</itemPath>
+      <itemPath>EnergyMonitorAppGlobal.h</itemPath>
+      <itemPath>InputControl.h</itemPath>
+      <itemPath>MCP39F511Calibration.h</itemPath>
+      <itemPath>MCP39F511Comms.h</itemPath>
+      <itemPath>MCP39F511Interface.h</itemPath>
+      <itemPath>PA1000PowerAnalyser.h</itemPath>
+      <itemPath>SoftwareUpdater.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <logicalFolder name="Debian_package"
+                     displayName="Debian_package"
+                     projectFiles="true">
+        <logicalFolder name="energy-monitor_1.0"
+                       displayName="energy-monitor_1.0"
+                       projectFiles="true">
+          <logicalFolder name="DEBIAN" displayName="DEBIAN" projectFiles="true">
+            <itemPath>Debian_package/energy-monitor_1.0/DEBIAN/conffiles</itemPath>
+            <itemPath>Debian_package/energy-monitor_1.0/DEBIAN/control</itemPath>
+            <itemPath>Debian_package/energy-monitor_1.0/DEBIAN/postinst</itemPath>
+            <itemPath>Debian_package/energy-monitor_1.0/DEBIAN/prerm</itemPath>
+          </logicalFolder>
+          <logicalFolder name="usr" displayName="usr" projectFiles="true">
+            <logicalFolder name="bin" displayName="bin" projectFiles="true">
+              <itemPath>Debian_package/energy-monitor_1.0/usr/bin/energy_monitor</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>build_deb_package.sh</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>DataLog.cpp</itemPath>
+      <itemPath>DataLogServer.cpp</itemPath>
+      <itemPath>EnergyMonitor.cpp</itemPath>
+      <itemPath>InputControl.cpp</itemPath>
+      <itemPath>MCP39F511Calibration.cpp</itemPath>
+      <itemPath>MCP39F511Comms.cpp</itemPath>
+      <itemPath>MCP39F511Interface.cpp</itemPath>
+      <itemPath>PA1000PowerAnalyser.cpp</itemPath>
+      <itemPath>SoftwareUpdater.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <itemPath>LICENSE</itemPath>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>Debian package</Elem>
+    <Elem>Debian_package</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="4">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <qt>
+        <version>1.0.11</version>
+        <modules>core gui widgets network</modules>
+      </qt>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerOptionItem>-lwiringPi</linkerOptionItem>
+            <linkerOptionItem>-ludev</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="DataLog.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DataLog.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DataLogServer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DataLogServer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/DEBIAN/conffiles"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/DEBIAN/control"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/DEBIAN/postinst"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/DEBIAN/prerm"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/usr/bin/energy_monitor"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="EnergyMonitor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EnergyMonitor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EnergyMonitorAppGlobal.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="InputControl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="InputControl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="LICENSE" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MCP39F511Calibration.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MCP39F511Calibration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MCP39F511Comms.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MCP39F511Comms.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MCP39F511Interface.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MCP39F511Interface.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PA1000PowerAnalyser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PA1000PowerAnalyser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SoftwareUpdater.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SoftwareUpdater.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="build_deb_package.sh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="4">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <qt>
+        <buildMode>1</buildMode>
+        <modules>core gui widgets</modules>
+      </qt>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerOptionItem>-lwiringPi</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="DataLog.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DataLog.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DataLogServer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DataLogServer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/DEBIAN/conffiles"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/DEBIAN/control"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/DEBIAN/postinst"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/DEBIAN/prerm"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Debian_package/energy-monitor_1.0/usr/bin/energy_monitor"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="EnergyMonitor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EnergyMonitor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EnergyMonitorAppGlobal.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="InputControl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="InputControl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="LICENSE" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MCP39F511Calibration.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MCP39F511Calibration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MCP39F511Comms.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MCP39F511Comms.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MCP39F511Interface.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MCP39F511Interface.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PA1000PowerAnalyser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PA1000PowerAnalyser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SoftwareUpdater.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SoftwareUpdater.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="build_deb_package.sh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

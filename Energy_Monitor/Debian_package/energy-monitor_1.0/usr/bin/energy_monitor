@@ -1,0 +1,1 @@
+/usr/bin/Energy_Monitor -platform linuxfb:fb=/dev/fb8 "$@"

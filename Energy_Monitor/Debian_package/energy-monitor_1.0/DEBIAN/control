@@ -1,0 +1,7 @@
+Package: energy-monitor
+Architecture: armhf
+Maintainer: Stephan de Georgio
+Depends: qt5-default
+Priority: optional
+Version: 1.0.11
+Description: User space application for running the EM100 mains energy / power monitor.

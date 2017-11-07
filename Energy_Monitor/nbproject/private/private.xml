@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <data xmlns="http://www.netbeans.org/ns/make-project-private/1">
+        <activeConfTypeElem>4</activeConfTypeElem>
+        <activeConfIndexElem>0</activeConfIndexElem>
+    </data>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/EnergyMonitor.cpp</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/nbproject/configurations.xml</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/EnergyMonitorAppGlobal.h</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/Debian_package/energy-monitor_1.0/DEBIAN/conffiles</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/Debian_package/energy-monitor_1.0/DEBIAN/control</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/Debian_package/energy-monitor_1.0/usr/bin/energy_monitor</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/build_deb_package.sh</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/Makefile</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/SoftwareUpdater.cpp</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/InputControl.h</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/Debian_package/energy-monitor_1.0/DEBIAN/prerm</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/main.cpp</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/DataLog.cpp</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/Debian_package/energy-monitor_1.0/DEBIAN/postinst</file>
+            <file>file:/C:/SVN%20Software/Energy_Meter/Energy_Monitor/DataLogServer.cpp</file>
+        </group>
+    </open-files>
+</project-private>
