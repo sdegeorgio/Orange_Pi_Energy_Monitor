@@ -36,7 +36,8 @@
 #include <QDebug>
 #include <QTimer>
 
-EnergyMonitor::EnergyMonitor() {
+EnergyMonitor::EnergyMonitor(QWidget *parent) {
+    setParent(parent);
     /* Pass the command line parameters */
     QCommandLineParser commandLineParser;
     commandLineParser.setApplicationDescription(QCoreApplication::translate(TRANSLATE_CONTEXT_MAIN, SOFTWARE_NAME));
@@ -70,7 +71,6 @@ EnergyMonitor::EnergyMonitor() {
     connect(dataLogger, SIGNAL(sigLoggingStopped()), this, SLOT(loggingStopped()));
     
     dataLogServer = new DataLogServer(this);
-    connect(powerMeter, SIGNAL(measurementsReady(DecodedMeasurements)), dataLogServer, SLOT(slotMeasurementsReady(DecodedMeasurements)));
     dataLogServer->startServer(); 
     
 	/* Create and initialise the switch inputs */
@@ -205,7 +205,7 @@ void EnergyMonitor::aboutToQuit() {
     dataLogger->stopLogging();
     dataLogger->deleteLater();
     
-    dataLogServer->stopServer();
+    dataLogServer->close();
     dataLogServer->deleteLater();
     
     widgetMain->setCurrentIndex(0);

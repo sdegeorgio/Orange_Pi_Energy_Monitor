@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
     QApplication::setApplicationName(SOFTWARE_NAME);
     QApplication::setApplicationVersion(SOFTWARE_VERSION);
     
-    EnergyMonitor e;
+    EnergyMonitor e(NULL);
 
     setShutDownSignal( SIGINT ); // shut down on ctrl-c
     setShutDownSignal( SIGTERM ); // shut down on killall

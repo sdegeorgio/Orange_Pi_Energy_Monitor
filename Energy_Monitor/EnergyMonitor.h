@@ -68,8 +68,9 @@ typedef enum {
 class EnergyMonitor : public QWidget {
 	Q_OBJECT
 	public:
-		EnergyMonitor();
+		EnergyMonitor(QWidget *parent);
 		~EnergyMonitor();
+                MCP39F511Interface *powerMeter;
 	
 	private:
 		void initUI();
@@ -82,7 +83,6 @@ class EnergyMonitor : public QWidget {
 		QStackedWidget *widgetMain;
 		QFont *fontMain;
         QFrame *statusBar;
-		MCP39F511Interface *powerMeter;
 		MCP39F511Calibration *powerCalibration;
         DataLog *dataLogger;
         DataLogServer *dataLogServer;

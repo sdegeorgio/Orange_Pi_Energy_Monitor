@@ -19,7 +19,7 @@
 
 /*
  * This file sets up a TCP/IP server bound to port 23.
- * Incomming connections will be sent the CSV data.
+ * Incoming connections will be sent the CSV data.
  */
 
 /* 
@@ -29,47 +29,31 @@
  * Created on 04 November 2016, 14:33
  */
 
-#include <QDateTime>
+
 #include <QHostAddress>
 #include <QList>
 #include <QNetworkInterface>
 #include <QString>
 
+#include "EnergyMonitor.h"
 #include "DataLogServer.h"
-#include "EnergyMonitorAppGlobal.h"
+#include "DataLogServerThread.h"
 
 DataLogServer::DataLogServer(QObject *parent) {
-	setParent(parent);
-    serverRunning = false;
+    setParent(parent);
 }
 
 DataLogServer::~DataLogServer() {
-    stopServer();
 }
 
-bool DataLogServer::startServer() {
-    if(!serverRunning) {
-        logServer = new QTcpServer(this);
-        connect(logServer, SIGNAL(newConnection()), this, SLOT(acceptConnection()));
-        if(!logServer->listen(QHostAddress::Any, DATA_LOG_SERVER_LISTEN_PORT)) {
-            logServer->close();
-            return false;
-        }
-        serverRunning = true;
+void DataLogServer::startServer() {
+    if(!this->listen(QHostAddress::Any, DATA_LOG_SERVER_LISTEN_PORT)) {
+        qDebug() << "Could not start the Telnet server";
+    } else {
         qDebug() << "Server started and listening on address: " << getLocalIPAddress(QAbstractSocket::IPv4Protocol) << getLocalIPAddress(QAbstractSocket::IPv6Protocol);
-        return true;
     }
-    return false;
 }
 
-bool DataLogServer::isServerRunning() {
-    return serverRunning;
-}
-
-void DataLogServer::stopServer() {
-    logServer->close();
-    serverRunning = false;
-}
 
 QList<QString> DataLogServer::getLocalIPAddress(QAbstractSocket::NetworkLayerProtocol protocolType) {
     QList<QHostAddress> list = QNetworkInterface::allAddresses();
@@ -84,37 +68,10 @@ QList<QString> DataLogServer::getLocalIPAddress(QAbstractSocket::NetworkLayerPro
     return addressList;
 }
 
-void DataLogServer::slotMeasurementsReady(DecodedMeasurements values) {
-    int i;
-    qint64 currentTimeInt = QDateTime::currentMSecsSinceEpoch();
-    QString currentTimeString = QString::number(currentTimeInt);
-    QString data(QString(SOFTWARE_VERSION) + ","
-            + currentTimeString + ","
-            + QString::number(values.powerActive) + ","
-            + QString::number(values.voltageRms) + ","
-            + QString::number(values.currentRms) + ","
-            + QString::number(values.frequency) + ","
-            + QString::number(values.powerFactor) + ","
-            + QString::number(values.powerApparent) + ","
-            + QString::number(values.powerReactive)
-            + "\r\n");
-    for(i = 0; i < socketList.size(); i++) {
-        socketList.at(i)->write(data.toLocal8Bit(), data.length());
-        socketList.at(i)->flush(); 
-    }
-}
-
-void DataLogServer::acceptConnection() {
-    while (logServer->hasPendingConnections()) {
-        QTcpSocket* clientSocket;
-        clientSocket = logServer->nextPendingConnection();
-        socketList.append(clientSocket);
-        connect(clientSocket, SIGNAL(disconnected()), this, SLOT(clientDisconnected()));
-    }
-}
-
-void DataLogServer::clientDisconnected() {
-    QTcpSocket* socket = static_cast<QTcpSocket*>(sender());
-    socketList.removeAll(socket);
-    socket->deleteLater();
+void DataLogServer::incomingConnection(qintptr socketDescriptor) {
+    EnergyMonitor *em = (EnergyMonitor*)parent();
+    DataLogServerThread *thread = new DataLogServerThread(socketDescriptor, this);
+    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
+    connect(em->powerMeter, SIGNAL(measurementsReady(DecodedMeasurements)), thread, SLOT(slotMeasurementsReady(DecodedMeasurements)));
+    thread->start();
 }

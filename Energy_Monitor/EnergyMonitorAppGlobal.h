@@ -32,7 +32,7 @@ extern "C" {
 #endif
 
 #define SOFTWARE_NAME "EM100 - Energy Monitor"
-#define SOFTWARE_VERSION "1.0.11"
+#define SOFTWARE_VERSION "1.0.12"
     
 #define TRANSLATE_CONTEXT_MAIN "main"
 

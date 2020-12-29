@@ -30,37 +30,25 @@
 #define DATA_LOG_SERVER_LISTEN_PORT 23
 
 
-#include "MCP39F511Interface.h"
-
 #include <QBuffer>
 #include <QList>
 #include <QTcpSocket>
 #include <QTcpServer>
 #include <QObject>
 
-class DataLogServer : public QObject {
+class DataLogServer : public QTcpServer {
     Q_OBJECT
     
 public:
-    DataLogServer(QObject *parent);
+    explicit DataLogServer(QObject *parent);
     virtual ~DataLogServer();
     
-    bool startServer();
-    void stopServer();
-    bool isServerRunning();
+    void startServer();
     QList<QString> getLocalIPAddress(QAbstractSocket::NetworkLayerProtocol protocolType);
 
-public slots:
-    void slotMeasurementsReady(DecodedMeasurements);
+protected:
+    void incomingConnection(qintptr socketDescriptor);
     
-private:
-    QTcpServer *logServer;
-    QList<QTcpSocket*> socketList;
-    bool serverRunning;
-    
-private slots:
-    void acceptConnection();
-    void clientDisconnected();
 };
 
 #endif /* DATALOGSERVER_H */

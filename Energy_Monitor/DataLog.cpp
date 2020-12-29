@@ -164,8 +164,8 @@ void DataLog::slotMeasurementsReady(DecodedMeasurements values) {
                         << "Reactive Power"
                         << "\n";
                 }
-                qint64 currentTimeInt = QDateTime::currentMSecsSinceEpoch();
-                QString currentTimeString = QString::number(currentTimeInt);
+                QString format = QString("yyyy-MM-dd hh:mm:ss.zzz");
+                QString currentTimeString = QDateTime::currentDateTime().toString(format);
                 out << currentTimeString << ","
                     << values.powerActive << ","
                     << values.voltageRms << ","

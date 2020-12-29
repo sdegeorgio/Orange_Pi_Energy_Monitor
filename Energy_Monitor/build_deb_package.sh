@@ -1,5 +1,5 @@
 #!/bin/bash
-SOFTWARE_VERSION="1.0.11"
+SOFTWARE_VERSION="1.0.12"
 ##################################################
 ## Script for building the Energy Monitor Debian package
 ##################################################
